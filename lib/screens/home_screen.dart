@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_api/component/category_widet.dart';
 import 'package:news_api/component/theme_widget.dart';
@@ -7,8 +6,6 @@ import 'package:news_api/const.dart';
 import 'package:news_api/models/news_model.dart';
 import 'package:news_api/screens/news_detail.dart';
 import 'package:news_api/services/news_service.dart';
-import 'package:news_api/themes/theme_provider.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -57,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontWeight: FontWeight.bold,
                 color: Theme.of(context).colorScheme.inversePrimary),
           ),
-          backgroundColor: Colors.grey,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           actions: [
             Padding(
                 padding: const EdgeInsets.only(right: 10), child: ThemeWidget())
@@ -88,8 +85,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ?
                   //empty
                   Center(
-                      child: Text("Unable to fetch your request for the time"),
-                    )
+                      child: CircularProgressIndicator(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ))
                   : ListView.builder(
                       itemCount: articles.length,
                       itemBuilder: (context, index) {

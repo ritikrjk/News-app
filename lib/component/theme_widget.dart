@@ -15,7 +15,7 @@ class ThemeWidget extends StatelessWidget {
         children: [
           Icon(
             Icons.sunny,
-            color: Theme.of(context).colorScheme.surface,
+            color: Theme.of(context).colorScheme.inversePrimary,
           ),
           CupertinoSwitch(
               value: Provider.of<ThemeProvider>(context).isDarkMode,
