@@ -35,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
   //commment to check this
+  //onther line to see this
   _loadArticles(String category) async {
     try {
       articles = await _newsService.getNewsByCategory(category);
