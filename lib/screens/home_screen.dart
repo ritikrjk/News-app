@@ -21,7 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
     'Stocks',
     'Science',
     'Crime',
-    'Jobs'
+    'Jobs',
+    'LifeStyle'
   ];
   NewsService _newsService = NewsService(apiKey: API_KEY);
   List<Article> articles = [];
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
       _loadArticles(categoryNews[0]);
     });
   }
-
+  //commment to check this
   _loadArticles(String category) async {
     try {
       articles = await _newsService.getNewsByCategory(category);
